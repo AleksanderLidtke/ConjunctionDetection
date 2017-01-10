@@ -1,0 +1,9 @@
+﻿Build started 29/08/2014 17:58:30.
+     1>Project "C:\Users\Alek\Documents\PhD\BitBucket\Doctorate\conjunctionDetectionSerial\conjunctionDetection\conjunctionDetection.vcxproj" on node 2 (Clean target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.CppClean.targets(75,5): warning : Access to the path 'C:\USERS\ALEK\DOCUMENTS\PHD\BITBUCKET\DOCTORATE\CONJUNCTIONDETECTIONSERIAL\RELEASE\CONJUNCTIONDETECTION.EXE' is denied.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.CppClean.targets(75,5): warning : Access to the path 'C:\Users\Alek\Documents\PhD\BitBucket\Doctorate\conjunctionDetectionSerial\Release\conjunctionDetection.exe' is denied.
+     1>Done Building Project "C:\Users\Alek\Documents\PhD\BitBucket\Doctorate\conjunctionDetectionSerial\conjunctionDetection\conjunctionDetection.vcxproj" (Clean target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.07

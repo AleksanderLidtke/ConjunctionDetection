@@ -1,0 +1,27 @@
+#!/bin/bash
+#PBS -S /bin/bash
+# Memory needed by the job
+#PBS -l mem=10GB
+
+# Time allocated
+#PBS -l walltime=60:00:00
+
+# Number of shared memory nodes required and the number of processors per node
+#PBS -l nodes=3:ppn=14
+
+# Give the job a name
+#PBS -N jcaFAPoint0
+
+#MPI_BUFFER_SIZE=120000000 
+
+module load numpy
+module load mvapich2-gdr/2.0-7/gcc-cuda-6.5
+
+# Change to original working directory
+cd $PBS_O_WORKDIR
+# One MPI process per node, will distrubute Python processes on each.
+mpirun -np 3 --npernode 1 /home/al11g09/JCAFalseAlarmsStudy/runCppInParallel.py --tle spaceTrack3LEs_07_11_2013.txt -i 0 -e jcaFalseAlarmsPoint_0_ -o jcaFalseAlarmsPoint_0_OUT -l jcaFalseAlarmsPoint_0 -s 42 -p 14  --jdayStart 2456603.5 --jdayStop 2456617.5
+# 07 Nov 13 to 21 Nov 13, Python will append to the title so the last _ is nice to have in -e field
+# -s 42 = one simulation per every available core (=no. nodes times no. ppn.)
+# -p 14 = one multiprocessing.Process per processor on every node (= no. ppn.)
+

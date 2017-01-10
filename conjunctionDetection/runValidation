@@ -1,0 +1,31 @@
+#!/bin/bash
+#PBS -S /bin/bash
+
+# Memory needed by the job
+#PBS -l mem=12GB      
+
+# Time allocated
+#PBS -l walltime=60:00:00
+
+# Number of shared memory nodes required and the number of processors per node
+#PBS -l nodes=1:ppn=4
+
+# Give the job a name
+#PBS -N validationRun
+
+#MPI_BUFFER_SIZE=120000000 
+
+# Change to original working directory
+cd $PBS_O_WORKDIR # Necessary for the script to execute from the directory where qsub was called.
+
+echo "Running Simpson"
+/home/al11g09/doctorate/conjunctionDetectionSerial/conjunctionDetection/conjunctionDetection_PA_XYZ_R2_MD_fR2_CoarseSearch -SSC 27386 -COV 4 -EnforceDI -radiusPrimary 14.975 -rPL 5.0 -rRB 5.0 -rDEB 5.0 -rOther 5.0 -jdayStop 2456953.665514 -t Simpson -o envisatOnALl_1year_COV3_DI_Simpson_1kmSTDEVS> log.Simpson 2>&1 &
+	
+echo "Running Series"
+/home/al11g09/doctorate/conjunctionDetectionSerial/conjunctionDetection/conjunctionDetection_PA_XYZ_R2_MD_fR2_CoarseSearch -SSC 27386 -COV 4 -radiusPrimary 14.975 -rPL 5.0 -rRB 5.0 -rDEB 5.0 -rOther 5.0 -jdayStop 2456953.665514 -t Series -o envisatOnALl_1year_COV3_Series_1kmSTDEVS> log.Series 2>&1 &
+
+echo "Running Simspon Spherical"
+/home/al11g09/doctorate/conjunctionDetectionSerial/conjunctionDetection/conjunctionDetection_PA_XYZ_R2_MD_fR2_CoarseSearch -SSC 27386 -COV 1 -EnforceDI -radiusPrimary 14.975 -rPL 5.0 -rRB 5.0 -rDEB 5.0 -rOther 5.0 -jdayStop 2456953.665514 -t SimpsonSpherical -o envisatOnALl_1year_COV1_DI_Simpson> log.SimpsonSpherical 2>&1&
+
+echo "Running Series Spherical"
+/home/al11g09/doctorate/conjunctionDetectionSerial/conjunctionDetection/conjunctionDetection_PA_XYZ_R2_MD_fR2_CoarseSearch -SSC 27386 -COV 1 -radiusPrimary 14.975 -rPL 5.0 -rRB 5.0 -rDEB 5.0 -rOther 5.0 -jdayStop 2456953.665514 -t SeriesSpherical -o envisatOnALl_1year_COV1_Series> log.SeriesSpherical 2>&1 &

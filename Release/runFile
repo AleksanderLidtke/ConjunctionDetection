@@ -1,0 +1,3 @@
+#!/bin/bash
+
+./conjunctionDetection_PA_XYZ_R2_MD_fR2_CoarseSearch_1kmSTDEVs -m 1 -SSC 27386 -COV 3 -rPL 1.0 -rRB 1.0 -rDEB 1.0 -rOther 1.0 -EnforceDI -t 1kmStandardDeviations -o envisat_1year_COV3_1kmStandardDeviations_DI -jdayStop 2456953.665514 1> envisat_1year_COV3_1kmStandardDeviations_DI.ou 2> envisat_1year_COV3_1kmStandardDeviations_DI.err

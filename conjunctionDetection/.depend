@@ -1,0 +1,3 @@
+main.o: main.cpp sgp4unit.h sgp4ext.h Simulation.h FatalError.h \
+ MathWarning.h SpaceObject.h VectorOperations.h Conjunction.h dsyevv3.h \
+ ExternalSpaceObject.h
